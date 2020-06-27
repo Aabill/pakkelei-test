@@ -425,28 +425,28 @@ slider.addEventListener('touchmove', (e) => {
 // START TABLE SLIDER
 
 // Touch Event
-// const table_slider = document.querySelector('.mid-div');
-// let table_touched = false;
-// let table_startY;
-// let table_scrollTop;
+const table_slider = document.querySelector('.mid-div');
+let table_touched = false;
+let table_startY;
+let table_scrollTop;
 
-// table_slider.addEventListener('touchstart', (e) => {
-//     table_touched = true;
-//     table_startY = e.changedTouches[0].pageY - table_slider.offsetTop;
-//     table_scrollTop = table_slider.scrollTop;
-// }, false)
+table_slider.addEventListener('touchstart', (e) => {
+    table_touched = true;
+    table_startY = e.changedTouches[0].pageY - table_slider.offsetTop;
+    table_scrollTop = table_slider.scrollTop;
+}, false)
 
-// table_slider.addEventListener('touchmove', (e) => {
-//     if (!table_touched) return;
-//     e.preventDefault();
-//     const y = e.changedTouches[0].pageY - table_slider.offsetTop;
-//     const walk = (y - table_startY) ; // scroll fast
-//     table_slider.scrollTop = table_scrollTop - walk;
-// })
+table_slider.addEventListener('touchmove', (e) => {
+    if (!table_touched) return;
+    e.preventDefault();
+    const y = e.changedTouches[0].pageY - table_slider.offsetTop;
+    const walk = (y - table_startY) ; // scroll fast
+    table_slider.scrollTop = table_scrollTop - walk;
+})
 
-// table_slider.addEventListener('touchend', (e) => {
-//     table_touched = false;
-// })
+table_slider.addEventListener('touchend', (e) => {
+    table_touched = false;
+})
 // End Touch Event
 
 // Mouse Event to Drag Scroll

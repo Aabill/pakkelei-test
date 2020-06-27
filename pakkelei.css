@@ -2,10 +2,6 @@
     content: "Phone Screen Baby";
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     display: grid;
     grid-template-rows:20vh 80vh;
