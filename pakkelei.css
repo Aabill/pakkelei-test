@@ -1,0 +1,307 @@
+.connected::before {
+    content: "Phone Screen Baby";
+}
+
+body {
+    display: grid;
+    grid-template-rows:20vh 80vh;
+    grid-template-areas: 
+        "header"
+        "section";
+    margin: 0;
+}
+
+header {
+    grid-area: header;
+    background: linear-gradient(to right bottom, #333, rgb(12, 12, 12));
+    display: grid;
+    grid-auto-rows: minmax(auto, 20%);
+}
+.players-header {
+    color: #fafafa;
+    font-size: 20pt;
+    text-shadow: 0px 3px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+.players-div {
+    position: relative;
+    height: 90px;
+    width: 90vw;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+    margin: auto auto;
+    transform: scale(1);
+    transition: all 0.2s;
+    will-change: transform;
+    user-select: none;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    border-top: 2px solid #333;
+    border-left:1px solid black ;
+    /* border-left: 2px solid #333; */
+    overflow: hidden;
+    box-shadow: 0px 2px 3px 2px #333;
+    margin-top: 5px;
+    /* border-right: 2px solid #333; */
+    
+}
+
+
+.player-div > div::selection, .players-div::selection {
+
+    color: none;
+
+    background: none;
+
+}
+
+/* For Mozilla Firefox */
+
+.player-div > div::-moz-selection, .players-div::-moz-selection {
+
+    color: none;
+
+    background: none;
+
+}
+
+
+.players-div.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1.05);
+    border-bottom: 3px solid black;
+    border-top: 3px solid rgb(12, 12, 12);
+    box-shadow: 0px 5px 5px 5px rgb(12, 12, 12);
+}
+.player-div {
+    position: relative;
+    height: 80px;
+    width: 80px;
+    float: none;
+    display: inline-flex;
+    /* transform-origin: 0 0; */
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    box-shadow: -1px 0px 1px 1px #333;
+
+}
+
+.player-init, .player {
+    font-size: 12pt;
+    height: 30px;
+    width: 30px;
+    /* padding: 2px 4px; */
+    /* cursor: default; */
+    background-color: #ebebeb;
+    box-shadow: 0px 1px 1px 2px rgb(12, 12, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+    border-radius: 50%;
+    transition: all 0.2s;
+    color: #fff;
+    text-shadow: 0px 1px #000;
+    /* z-index: 1; */
+    /* will-change: transform; */
+}
+.player-div > .player-init:hover, .player-init.active, .player.active{
+    /* font-size: 24pt; */
+    position: relative;
+    width: 80%;
+    height: 80%;
+    box-shadow: 0px 5px 10px 5px rgb(12, 12, 12);
+    transform: scale(1.02);
+    border-radius: 15%;
+    
+}
+
+.player-div > .gift-no {
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    padding: 3px;
+    border-radius: 5%;
+    background-color: rgb(49, 49, 49);
+    font-size: 9pt;
+    color: #ffff;
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+}
+
+section {
+    position: relative;
+    grid-area: section;
+    background:linear-gradient(to bottom left, rgb(12,12,12), #333);
+    border-top:2px solid rgb(12, 12, 12);
+    box-shadow: 0px 1px 2px 2px black;
+}
+
+section > .mid-div {
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+    overflow-y: hidden;
+    /* clip-path: inset(0 0 -20px 0); */
+    scroll-margin: 0 0 50px 0;
+}
+.section-nav {
+    position: absolute;
+    top:0;
+    height: 6%;
+    width: 100%;
+    background: linear-gradient(to right ,rgb(126, 59, 5), rgb(114, 62, 14), rgb(126, 59, 5));
+    z-index: 1;
+    /* border-bottom: 2px dotted rgb(180, 93, 22); */
+    box-shadow: 0 2px 5px 3px black;
+}
+section > .mid-div > .table {
+    position: relative;
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    height: 480px; /* 30% */
+    width: 35%;
+    background: radial-gradient(rgb(92, 53, 8), rgb(49, 24, 2));
+    box-shadow: 3px -3px 5px 3px rgb(12, 12, 12);
+    border: 2px dotted rgb(143, 90, 21);
+    border-radius: 50px;
+    /* clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%); */
+}
+
+.player-turn {
+    position: absolute;
+    top: 19%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 12pt;
+    height: 72px;
+    width: 72px;
+    /* padding: 2px 4px; */
+    /* cursor: default; */
+    background-color: #ebebeb;
+    box-shadow: 2px -2px 5px 5px rgb(12, 12, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transform: scale(1); */
+    border-radius: 15%;
+    /* transition: all 0.2s; */
+    /* z-index: 1; */
+}
+
+.table-players {
+    position: absolute;
+    top: 15%;
+    display: grid;
+    grid-auto-rows: minmax(80px, auto);
+    width: 80px;
+    /* background-color: black; */
+    justify-content: center;
+    align-items: center;
+}
+.table-players.left {  
+    left: 5%;
+}
+.table-players.right {
+    right: 5%;
+}
+.player-div.game {
+    box-shadow: none;
+}
+.player-turn-sides {
+    position: absolute;
+    font-size: 12pt;
+    width: 30px;
+    height: 30px;
+    background-color: #ebebeb;
+    border-radius: 50%;
+    box-shadow: 1px -1px 1px 2px rgb(12, 12, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transform: scale(1); */
+    border-radius: 50%;
+    /* transition: all 0.2s;
+    z-index: 1; */
+}
+.player-turn-sides.right {
+    top: 45%;
+    left: 10%;
+}
+.player-turn-sides.left {
+    top: 45%;
+    right: 10%;
+}
+
+
+.info-corner, info {
+    /* visibility: hidden; */
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 30vh;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgb(143, 84, 29),rgb(77, 39, 5));
+    border-top: 3px solid rgb(12, 12, 12);
+    box-shadow: 0px -2px 5px 3px black;
+    border-radius: 0px 50px 0px 50px;
+    /* clip-path: polygon(10% 90%, 20% 100%, 30% 100%, 40% 100%, 50% 100%); */
+}
+
+
+
+/* For tablet screen  */
+@media only screen and (min-width: 600px) {
+    .connected::before {
+        content: "Tablet Screen Baby";
+    }
+}
+
+
+/* For Desktop Screen  */
+@media only screen and (min-width: 768px) {
+    section {
+        display: grid;
+        grid-template-columns: 60vw 40vw;
+        grid-template-areas: 
+            "tb info";
+    }
+    .info-corner {
+        background: linear-gradient(to right, #333333, rgb(230, 230, 230), #333);
+        grid-area: info;
+        right: 0;
+        width: 40vw;
+        height: 100%;
+        box-shadow: -2px 0px 5px 0px black;
+        border-top: none;
+        border-left: 3px solid rgb(12, 12, 12);
+        /* visibility: hidden; */
+    }
+    .table {
+        visibility: hidden;
+    }
+    .table-desktop {
+        position: absolute;
+        /* grid-area: 'tb'; */
+        top: 50%;
+        left: 50%;
+        height: 50vh;
+        width: 60vw;
+        background: radial-gradient(rgb(245, 243, 109), rgb(77, 39, 5));
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        transform: translate(-50%,-50%);
+        box-shadow: -3px 0px 5px 3px rgb(12, 12, 12);
+    }
+
+}
